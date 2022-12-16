@@ -14,3 +14,10 @@ exports.getEmployeeList=(req,res)=>{
 
     })
 }
+
+
+//get employee by id
+
+exports.getEmployeeByID=(req,res)=>{
+    console.log("get employee by id");
+}

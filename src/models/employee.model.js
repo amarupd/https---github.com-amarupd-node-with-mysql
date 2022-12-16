@@ -26,5 +26,19 @@ Employee.getAllEmployees = (res) => {
     });
 }
 
+//get employee by id from database
+
+
+Employee.getEmployeeByID = (res) => {
+    dbConn.query('SELECT*FROM EMPLOYEES', (err, data) => {
+        if (err) {
+            console.log("error fetching the data from sql", err);
+            res(null, err);
+        }
+        console.log("employees details fetched succesfully");
+        res(null, data);
+    });
+}
+
 
 module.exports=Employee;
