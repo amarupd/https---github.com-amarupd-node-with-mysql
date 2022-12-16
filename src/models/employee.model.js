@@ -16,7 +16,7 @@ var Employee = (employee) => {
 //get all the employee
 
 Employee.getAllEmployees = (res) => {
-    dbConn.query('SELECT*FROM EMPLOYEES', (err, data) => {
+    dbConn.query('SELECT * FROM EMPLOYEES ', (err, data) => {
         if (err) {
             console.log("error fetching the data from sql", err);
             res(null, err);
@@ -29,10 +29,10 @@ Employee.getAllEmployees = (res) => {
 //get employee by id from database
 
 
-Employee.getEmployeeByID = (res) => {
-    dbConn.query('SELECT*FROM EMPLOYEES', (err, data) => {
+Employee.getEmployeeByID = (id,res) => {
+    dbConn.query('SELECT*FROM EMPLOYEES WHERE ID=?', id, (err, data) => {
         if (err) {
-            console.log("error fetching the data from sql", err);
+            console.log("error fetching the data by id from sql", err);
             res(null, err);
         }
         console.log("employees details fetched succesfully");
@@ -41,4 +41,4 @@ Employee.getEmployeeByID = (res) => {
 }
 
 
-module.exports=Employee;
+module.exports = Employee;
