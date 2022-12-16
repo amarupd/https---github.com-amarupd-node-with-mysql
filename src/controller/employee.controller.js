@@ -1,8 +1,6 @@
 const Employee = require("../models/employee.model");
 const EmployeeModel = require("../models/employee.model");
 
-
-
 //get all the employee list
 exports.getEmployeeList = (req, res) => {
     // console.log("here all employee list");
@@ -11,10 +9,8 @@ exports.getEmployeeList = (req, res) => {
         if (err) { res.send(err); }
         console.log("Employee details are here ", employee);
         res.send(employee);
-
     })
 }
-
 
 //get employee by id
 
@@ -32,5 +28,5 @@ exports.getEmployeeByID = (req, res) => {
 //create new employee
 
 exports.createNewEmployee = (req, res) => {
-    console.log("creating new employee");
+    console.log("request data",req.body);
 }
