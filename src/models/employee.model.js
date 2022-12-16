@@ -15,13 +15,16 @@ var Employee = (employee) => {
 
 //get all the employee
 
-Employee.getAllEmployee = (res) => {
+Employee.getAllEmployees = (res) => {
     dbConn.query('SELECT*FROM EMPLOYEES', (err, data) => {
         if (err) {
             console.log("error fetching the data from sql", err);
-            result(null, err);
+            res(null, err);
         }
         console.log("employees details fetched succesfully");
-        result(null, res);
-    })
+        res(null, data);
+    });
 }
+
+
+module.exports=Employee;
