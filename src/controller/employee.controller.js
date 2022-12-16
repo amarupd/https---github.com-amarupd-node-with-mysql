@@ -32,5 +32,5 @@ exports.getEmployeeByID = (req, res) => {
 //create new employee
 
 exports.createNewEmployee=(req,res)=>{
-    console.log("creating employee");
+    console.log("creating new employee");
 }
