@@ -29,7 +29,7 @@ Employee.getAllEmployees = (res) => {
 //get employee by id from database
 
 
-Employee.getEmployeeByID = (id,res) => {
+Employee.getEmployeeByID = (id, res) => {
     dbConn.query('SELECT*FROM EMPLOYEES WHERE ID=?', id, (err, data) => {
         if (err) {
             console.log("error fetching the data by id from sql", err);
