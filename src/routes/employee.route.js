@@ -5,5 +5,5 @@ const employeeController=require("../controller/employee.controller");
 
 // creating routing for all employee
 
-router.get("",employeeController);
+router.get("",employeeController.getEmployeeList);
 module.exports=router;
