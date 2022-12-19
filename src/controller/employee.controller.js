@@ -28,7 +28,7 @@ exports.getEmployeeByID = (req, res) => {
 
 
 exports.createNewEmployee = (req, res) => {
-    const employeeReqData = new Employee(req.body)
+    const employeeReqData = new Employee(req.body);
     console.log('employeeReqData', employeeReqData);
     //check null
     if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
