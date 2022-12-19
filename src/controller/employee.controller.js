@@ -46,3 +46,9 @@ exports.createNewEmployee = (req, res) => {
         })
     }
 }
+
+//update employee details in employee table
+
+exports.updateEmployee=(req,res)=>{
+    
+}
