@@ -1,30 +1,37 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+const express=require("express");
 
-// create express app
+const bodyParser=require("body-parser");
 
-const app = express();
+const app=express();
 
-// Setup server port
+const port=process.env.port || 5000;
 
-const port = process.env.PORT || 5000;
+//parsing the request data content type application/x-www-form-urlencoded
 
-// parse requests of content-type - application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({extended:false}));
 
-app.use(bodyParser.urlencoded({ extended: true }))
+//parse request data json type data
 
-// parse requests of content-type - application/json
+app.use(bodyParser.json());
 
-app.use(bodyParser.json())
+//response on the homepage
 
-// define a root route
-
-app.get('/', (req, res) => {
-  res.send("Hello World");
+app.get("",(req,res)=>{
+    res.send("hello world");
 });
 
-// listen for requests
+//import employee routes
 
-app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
-});
+const salaryRoutes=require("./src2/routes/salary.route");
+
+//create a url using middle ware
+
+app.use('/api/v1/salary',salaryRoutes);
+
+
+//listening to port
+
+app.listen(port,()=>
+{
+    console.log(`listening to port ${port}`);
+})

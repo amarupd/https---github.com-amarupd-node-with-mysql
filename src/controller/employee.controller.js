@@ -1,4 +1,3 @@
-const Employee = require("../models/employee.model");
 const EmployeeModel = require("../models/employee.model");
 
 //get all the employee list
