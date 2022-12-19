@@ -17,7 +17,7 @@ router.post("/", employeeController.createNewEmployee);
 
 // update employee by id
 
-router.post("/", employeeController.updateEmployee);
+// router.post("/", employeeController.updateEmployee);
 
 
 module.exports = router;
