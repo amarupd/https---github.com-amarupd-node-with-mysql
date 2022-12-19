@@ -65,15 +65,32 @@ Salary.updateSalary=(id,salaryReqData,res)=>{
 
 //deleting salary
 
-Salary.deleteSalary = (id, res) => {
-    dbConn.query('DELETE FROM SALARY WHERE ID=?', id, (err, data) => {
-        if (err) {
-            console.log("error fetching the data by id from sql", err);
-            res(null, err);
-        }
-        console.log("salary details DELETED succesfully");
-        res(null, data);
-    });
+// Salary.deleteSalary = (id, res) => {
+//     dbConn.query('DELETE FROM SALARY WHERE ID=?', id, (err, data) => {
+//         if (err) {
+//             console.log("error fetching the data by id from sql", err);
+//             res(null, err);
+//         }
+//         console.log("salary details DELETED succesfully");
+//         res(null, data);
+//     });
+// }
+
+//we never delete any data from the table therefore we use update function in the programing
+
+
+Salary.deleteSalary = (id, res) =>{
+    dbConn.query(`UPDATE salary SET status=? where id=?`, [0,id],(err,data)=>{
+                if(err)
+                {
+                    console.log("error while deleting the records");
+                    res(null,err);
+                }
+                else{
+                    console.log('salary deleted succesfullyy');
+                    res(null,data);
+                }
+        });
 }
 
 module.exports=Salary;
