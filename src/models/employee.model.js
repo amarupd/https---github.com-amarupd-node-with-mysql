@@ -57,8 +57,8 @@ Employee.createEmployee = (employeeReqData, res) => {
 }
 
 //updating the content in the table 
-Employee.updateEmployee = (req,res)=>{
-    
+Employee.updateEmployee = (id,employeeReqData,res)=>{
+
 }
 
 module.exports = Employee;
