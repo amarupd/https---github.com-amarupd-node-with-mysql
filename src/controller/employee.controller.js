@@ -50,5 +50,20 @@ exports.createNewEmployee = (req, res) => {
 //update employee details in employee table
 
 exports.updateEmployee=(req,res)=>{
-    
+    const employeeReqData = new Employee(req.body)
+    console.log('employeeReqData update', employeeReqData);
+    //check null
+    if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
+        res.status(400).send({ success: false, message: 'please fill all the fields' });
+    }
+    else {
+        console.log("valid data");
+        EmployeeModel.updateEmployee(employeeReqData, (err, employee) => {
+            if (err) {
+                res.send(err);
+            }
+            res.json({ status: true, message: "Employee created succesfully", data: employee });
+            
+        })
+    }
 }
