@@ -1,5 +1,5 @@
 var dbConn = require("../../config/db.config");
-var Employee = function(employee){
+var Employee = function (employee) {
     this.first_name = employee.first_name;
     this.last_name = employee.last_name;
     this.email = employee.email;
@@ -36,7 +36,7 @@ Employee.getEmployeeByID = (id, res) => {
             res(null, err);
         }
         console.log("employees details fetched succesfully");
-        res(null,data);
+        res(null, data);
     });
 }
 
@@ -44,11 +44,11 @@ Employee.getEmployeeByID = (id, res) => {
 // inserting data into the table or new employee details
 
 
-Employee.createEmployee=(employeeReqData,res)=>{
-    dbConn.query('INSERT INTO EMPLOYEES SET ?',employeeReqData,(err,data)=>{
-        if(err){
+Employee.createEmployee = (employeeReqData, res) => {
+    dbConn.query('INSERT INTO EMPLOYEES SET ?', employeeReqData, (err, data) => {
+        if (err) {
             console.log("error putting the data");
-            res(null,err);
+            res(null, err);
         }
         console.log("data inserted succesfully 👍");
         res(null, data);

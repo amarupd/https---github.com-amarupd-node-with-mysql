@@ -30,7 +30,7 @@ exports.getEmployeeByID = (req, res) => {
 
 exports.createNewEmployee = (req, res) => {
     const employeeReqData = new Employee(req.body)
-    console.log('employeeReqData',employeeReqData);
+    console.log('employeeReqData', employeeReqData);
     //check null
     if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
         res.status(400).send({ success: false, message: 'please fill all the fields' });
