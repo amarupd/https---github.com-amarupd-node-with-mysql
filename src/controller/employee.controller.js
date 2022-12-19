@@ -58,11 +58,11 @@ exports.updateEmployee=(req,res)=>{
     }
     else {
         console.log("valid data");
-        EmployeeModel.updateEmployee(employeeReqData, (err, employee) => {
+        EmployeeModel.updateEmployee(req.params.id,employeeReqData, (err, employee) => {
             if (err) {
                 res.send(err);
             }
-            res.json({ status: true, message: "Employee created succesfully", data: employee });
+            res.json({ status: true, message: "Employee updated succesfully", data: employee });
             
         })
     }
