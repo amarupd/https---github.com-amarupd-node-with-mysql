@@ -42,7 +42,7 @@ exports.createNewEmployee = (req, res) => {
                 res.send(err);
             }
             res.json({ status: true, message: "Employee created succesfully", data: employee });
-            // res.send(null, { status: true, message: 'employee created succesfully', insertId: res })
+            
         })
     }
 }
