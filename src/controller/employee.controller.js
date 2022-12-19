@@ -42,14 +42,14 @@ exports.createNewEmployee = (req, res) => {
                 res.send(err);
             }
             res.json({ status: true, message: "Employee created succesfully", data: employee });
-            
+
         })
     }
 }
 
 //update employee details in employee table
 
-exports.updateEmployee=(req,res)=>{
+exports.updateEmployee = (req, res) => {
     const employeeReqData = new Employee(req.body)
     console.log('employeeReqData update', employeeReqData);
     //check null
@@ -58,12 +58,24 @@ exports.updateEmployee=(req,res)=>{
     }
     else {
         console.log("valid data");
-        EmployeeModel.updateEmployee(req.params.id,employeeReqData, (err, employee) => {
+        EmployeeModel.updateEmployee(req.params.id, employeeReqData, (err, employee) => {
             if (err) {
                 res.send(err);
             }
-            res.json({ status: true, message: "Employee updated succesfully", data: employee });
-            
+            res.json({ status: true, message: "Employee updated succesfully"});
+
         })
     }
+}
+
+//delete data from employee table
+
+exports.deleteEmployee = (req, res) => {
+    //console.log("get employee by id");
+    EmployeeModel.deleteEmployee(req.params.id, (err, employee) => {
+        if (err)
+            res.send(err);
+        res.json({ status: true, message: "Employee deleted succesfully"});
+
+    })
 }
