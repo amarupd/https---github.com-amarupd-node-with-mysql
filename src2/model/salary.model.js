@@ -62,19 +62,18 @@ Salary.updateSalary=(id,salaryReqData,res)=>{
     });
 }
 
-// Employee.updateEmployee = (id,employeeReqData,res)=>{
-//     dbConn.query(`UPDATE employees SET first_name=?,last_name=?,email=?,phone=?,organization=?,designation=?,salary=?,status=? WHERE id = ?`,
-//     [employeeReqData.first_name,employeeReqData.last_name,employeeReqData.email,employeeReqData.phone,employeeReqData.organization,employeeReqData.designation,employeeReqData.salary,employeeReqData.status, id],(err,data)=>{
-//                 if(err)
-//                 {
-//                     console.log("error while updating the records");
-//                     res(null,err);
-//                 }
-//                 else{
-//                     console.log('employeee updated succesfullyy');
-//                     res(null,data);
-//                 }
-//         });
-//}
+
+//deleting salary
+
+Salary.deleteSalary = (id, res) => {
+    dbConn.query('DELETE FROM SALARY WHERE ID=?', id, (err, data) => {
+        if (err) {
+            console.log("error fetching the data by id from sql", err);
+            res(null, err);
+        }
+        console.log("salary details DELETED succesfully");
+        res(null, data);
+    });
+}
 
 module.exports=Salary;

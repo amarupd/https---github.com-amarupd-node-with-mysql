@@ -56,5 +56,17 @@ exports.updateSalary = (req, res) => {
     }
 }
 
+//salary deletion
+
+exports.deleteSalary = (req, res) => {
+    //console.log("get employee by id");
+    Salary.deleteSalary(req.params.id, (err, salary) => {
+        if (err)
+            res.send(err);
+        res.json({ status: true, message: "salary deleted succesfully"});
+
+    })
+}
+
 
 

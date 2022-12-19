@@ -19,5 +19,9 @@ router.post("",salaryController.createSalary);
 
 router.put("/:id",salaryController.updateSalary);
 
+//deleting salary
+
+router.delete("/:id",salaryController.deleteSalary);
+
 
 module.exports = router;
