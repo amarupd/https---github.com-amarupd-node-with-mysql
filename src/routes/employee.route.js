@@ -15,4 +15,9 @@ router.get("/:id", employeeController.getEmployeeByID);
 
 router.post("/", employeeController.createNewEmployee);
 
+// update employee by id
+
+router.post("/", employeeController.updateEmployee);
+
+
 module.exports = router;
