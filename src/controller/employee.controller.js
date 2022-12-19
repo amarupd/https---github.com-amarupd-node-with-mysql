@@ -27,6 +27,24 @@ exports.getEmployeeByID = (req, res) => {
 
 //create new employee
 
+
 exports.createNewEmployee = (req, res) => {
     console.log("request data",req.body);
+    const employeeReqData=new Employee(req.body)
+    //check null
+    if(req.body.constructor===Object && Object.keys(req.body).length===0){
+        res.send(400).send({success:false,message:'please fill all the fields'});
+    }
+    else
+    {
+        console.log("valid data");
+        EmployeeModel.createEmployee(employeeReqData,(err,employee)=>{
+            if(err)
+            {
+                res.send(err);
+                res.json({status:false,message: err,data:employee});
+            }
+            res.send(null,{status:true,message:'employee created succesfully',insertId:res})
+        })
+    }
 }
