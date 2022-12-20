@@ -24,6 +24,14 @@ app.get("",(req,res)=>{
 
 const employeeRoutes=require("./src/routes/employee.route");
 
+//import salary routes
+
+const salaryRoutes=require("./src2/routes/salary.route");
+
+//create a url using middle ware
+
+app.use('/api/v1/salary',salaryRoutes);
+
 //create a url using middle ware
 
 app.use('/api/v1/employee',employeeRoutes);
