@@ -13,7 +13,7 @@ router.get("/:id", employeeController.getEmployeeByID);
 
 //joining two tables
 
-router.get("/join/:id", employeeController.getEmployeeByJoin);
+// router.get("/join/:id", employeeController.getEmployeeByJoin);
 
 //create new employee by routing
 
