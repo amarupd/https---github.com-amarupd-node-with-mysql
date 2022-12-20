@@ -11,6 +11,10 @@ router.get("", employeeController.getEmployeeList);
 
 router.get("/:id", employeeController.getEmployeeByID);
 
+//joining two tables
+
+router.get("/join/:id", employeeController.getEmployeeByID);
+
 //create new employee by routing
 
 router.post("/", employeeController.createNewEmployee);
