@@ -5,7 +5,7 @@ const dbConn = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : 'amar',
-  database : 'node_mysql_crud_db'
+  database : 'practice'
 });
 dbConn.connect(function(err) {
   if (err) throw err;

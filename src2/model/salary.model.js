@@ -80,7 +80,7 @@ Salary.updateSalary=(id,salaryReqData,res)=>{
 
 
 Salary.deleteSalary = (id, res) =>{
-    dbConn.query(`UPDATE salary SET status=? where id=?`, [0,id],(err,data)=>{
+    dbConn.query(`UPDATE salary SET status=?, is_deleted=? where id=?`, [0,1,id],(err,data)=>{
                 if(err)
                 {
                     console.log("error while deleting the records");
